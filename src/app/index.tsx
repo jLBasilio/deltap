@@ -2,8 +2,8 @@ import { registerRootComponent } from 'expo';
 import { useEffect } from 'react';
 import { View } from 'react-native';
 
-import { Summary, BigButton } from '../components';
-import { closeDB, openDB } from '../database/helpers';
+import { Summary, BigButton } from '@components';
+import { closeDB, openDB } from '@database/helpers';
 import styles from './styles';
 
 const App = (): JSX.Element => {

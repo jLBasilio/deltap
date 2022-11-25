@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": "src",
+    "paths": {
+      "@components": ["./components/index.ts"],
+      "@database/*": ["./database/*"]
+    }
   },
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "exclude": ["node_modules"]
 }
+
+/* see babel.config.js */
