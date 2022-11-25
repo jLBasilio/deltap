@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import styles from './styles';
 
-const Summary = () => (
+const Summary = (): JSX.Element => (
   <View style={styles.container}>
     <Text>Viewing purposes</Text>
   </View>

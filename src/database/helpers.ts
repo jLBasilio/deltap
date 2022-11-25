@@ -1,13 +1,15 @@
 import { openDatabase, WebSQLDatabase } from 'expo-sqlite';
-import { DB_NAME } from '../constants';
+import { DB_NAME } from '@src/constants';
 
-let db: WebSQLDatabase;
-export function openDB() {
+let db: WebSQLDatabase | null = null;
+
+export function openDB(): void {
   db = openDatabase(`${DB_NAME}.db`);
+  console.log(`Opened ${DB_NAME}`);
 }
 
-export function closeDB() {
-  if (db) {
+export function closeDB(): void {
+  if (db !== null) {
     db.closeAsync();
   }
 }

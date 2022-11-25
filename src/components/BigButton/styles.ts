@@ -7,8 +7,8 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     borderBottomColor: 'red',
     borderBottomWidth: 1,
-    width: '100%',
-  },
+    width: '100%'
+  }
 });
 
 export default style;
