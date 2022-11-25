@@ -1,7 +1,11 @@
 import { Button, View } from 'react-native';
 import styles from './styles';
 
-const BigButton = (props: BigButtonProps) => {
+interface BigButtonProps {
+  onPress: () => void;
+}
+
+const BigButton = (props: BigButtonProps): JSX.Element => {
   const { onPress } = props;
 
   return (
@@ -10,9 +14,5 @@ const BigButton = (props: BigButtonProps) => {
     </View>
   );
 };
-
-interface BigButtonProps {
-  onPress: () => void;
-}
 
 export default BigButton;

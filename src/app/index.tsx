@@ -6,7 +6,7 @@ import { Summary, BigButton } from '../components';
 import { closeDB, openDB } from '../database/helpers';
 import styles from './styles';
 
-const App = () => {
+const App = (): JSX.Element => {
   useEffect(() => {
     openDB();
 
@@ -21,7 +21,7 @@ const App = () => {
     </View>
   );
 
-  function haha() {
+  function haha(): void {
     console.log('gg');
   }
 };
