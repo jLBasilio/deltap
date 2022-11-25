@@ -9,7 +9,8 @@
     "start:emulator": "emulator -avd pixel1",
     "lint": "eslint . --ext .ts --ext .tsx",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "prepare": "husky install"
   },
   "dependencies": {
     "expo": "~46.0.16",
@@ -34,6 +35,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^8.0.2",
     "prettier": "^2.7.1",
     "typescript": "*"
   },
