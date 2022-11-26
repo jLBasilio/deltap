@@ -5,11 +5,10 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "start:app:android": "expo start --android --clear",
-    "start:emulator": "emulator -avd pixel1",
-    "lint": "eslint . --ext .ts --ext .tsx",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "start:app:android": "expo start --android --clear",
+    "lint": "eslint . --ext .ts --ext .tsx",
     "prepare": "husky install"
   },
   "dependencies": {
