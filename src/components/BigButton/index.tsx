@@ -3,14 +3,15 @@ import styles from './styles';
 
 interface BigButtonProps {
   onPress: () => void;
+  title: string;
 }
 
 const BigButton = (props: BigButtonProps): JSX.Element => {
-  const { onPress } = props;
+  const { title, onPress } = props;
 
   return (
     <View style={styles.container}>
-      <Button onPress={onPress} title="Tap me" />
+      <Button onPress={onPress} title={title} />
     </View>
   );
 };
