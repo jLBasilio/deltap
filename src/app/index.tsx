@@ -1,10 +1,18 @@
 import { registerRootComponent } from 'expo';
 import { useEffect } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Summary, BigButton } from '@components';
 import { closeDB, initDB, openDB } from '@database/helpers';
 import { ADD_ONE_TAP, RETRIEVE_TAPS, ADD_ONE_TASK, RETRIEVE_TASKS } from '@src/database/functions';
-import styles from './styles';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
 
 const App = (): JSX.Element => {
   useEffect(() => {
