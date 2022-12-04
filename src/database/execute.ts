@@ -2,10 +2,10 @@
 import { ParamArray, QueryWithParams } from '@src/types';
 import {
   SQLError,
-  SQLTransaction,
+  SQLResultSet,
   SQLStatementErrorCallback,
-  WebSQLDatabase,
-  SQLResultSet
+  SQLTransaction,
+  WebSQLDatabase
 } from 'expo-sqlite';
 
 function errorWrapper(

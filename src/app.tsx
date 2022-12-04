@@ -1,9 +1,9 @@
 import { registerRootComponent } from 'expo';
 import { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Summary, BigButton } from '@components';
+import { BigButton, Summary } from '@components';
 import { closeDB, initDB, openDB } from '@database/helpers';
-import { ADD_ONE_TAP, RETRIEVE_TAPS, ADD_ONE_TASK, RETRIEVE_TASKS } from '@src/database/functions';
+import { ADD_ONE_TAP, ADD_ONE_TASK, RETRIEVE_TAPS, RETRIEVE_TASKS } from '@src/database/functions';
 
 const styles = StyleSheet.create({
   container: {
