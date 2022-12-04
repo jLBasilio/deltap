@@ -1,7 +1,7 @@
 {
   "name": "deltap",
   "version": "1.0.0",
-  "main": "src/app/index.tsx",
+  "main": "src/app.tsx",
   "private": true,
   "scripts": {
     "start": "expo start",
