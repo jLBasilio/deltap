@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { ParamArray, QueryWithParams } from '@src/constants';
+import { ParamArray, QueryWithParams } from '@src/types';
 import {
   SQLError,
   SQLTransaction,

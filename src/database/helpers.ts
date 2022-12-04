@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { openDatabase, WebSQLDatabase } from 'expo-sqlite';
-import { DB_NAME, QueryWithParams } from '@src/constants';
+import { DB_NAME } from '@src/constants';
+import { QueryWithParams } from '@src/types';
 import { CREATE_TASK_TABLE, CREATE_TAPS_TABLE } from '@database/queries';
 import { executeMultiple } from '@database/execute';
 
