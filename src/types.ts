@@ -4,3 +4,8 @@ export type QueryWithParams = {
   query: string;
   params: ParamArray;
 };
+
+export type BigButtonProps = {
+  onPress: () => void;
+  title: string;
+};

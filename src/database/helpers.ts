@@ -10,7 +10,7 @@ export let db: WebSQLDatabase;
 export function openDB(): void {
   db = openDatabase(`${DB_NAME}.db`);
   db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () => {
-    console.log(`Opened ${DB_NAME}; foreign keys ON`);
+    console.log(`Opened ${DB_NAME} with foreign keys ON`);
   });
 }
 

@@ -1,10 +1,6 @@
 import { Button, View } from 'react-native';
 import styles from './styles';
-
-interface BigButtonProps {
-  onPress: () => void;
-  title: string;
-}
+import { BigButtonProps } from '@src/types';
 
 const BigButton = (props: BigButtonProps): JSX.Element => {
   const { title, onPress } = props;

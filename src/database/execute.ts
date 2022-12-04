@@ -43,7 +43,6 @@ export async function executeMultiple(
   db: WebSQLDatabase,
   queryArray: QueryWithParams[]
 ): Promise<any> {
-  console.log('creating');
   return await new Promise((resolve, reject) => {
     db.transaction((tx) => {
       const results = queryArray.map(
