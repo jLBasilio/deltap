@@ -2,6 +2,7 @@
   "name": "deltap",
   "version": "1.0.0",
   "main": "src/app/index.tsx",
+  "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -35,8 +36,14 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
     "prettier": "^2.7.1",
     "typescript": "*"
   },
-  "private": true
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint",
+      "prettier --write"
+    ]
+  }
 }
