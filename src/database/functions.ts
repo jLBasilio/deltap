@@ -4,21 +4,25 @@ import { db } from '@database/helpers';
 import { FETCH_TAPS, FETCH_TASKS, INSERT_ONE_TAP, INSERT_ONE_TASK } from '@database/queries';
 
 export async function ADD_ONE_TAP(): Promise<void> {
-  await executeSafely(executeOne, db, INSERT_ONE_TAP, [1]);
+  const promise = executeOne(db, INSERT_ONE_TAP, [1]);
+  await asyncWrap(promise);
 }
 
 export async function RETRIEVE_TAPS(): Promise<any> {
-  const result = await executeSafely(executeOne, db, FETCH_TAPS, []);
+  const promise = executeOne(db, FETCH_TAPS, []);
+  const result = await asyncWrap(promise);
   const tapsArray = mapValuesFromTransaction(result);
   return tapsArray;
 }
 
 export async function ADD_ONE_TASK(): Promise<any> {
-  return await executeSafely(executeOne, db, INSERT_ONE_TASK, ['test']);
+  const promise = executeOne(db, INSERT_ONE_TASK, ['test']);
+  return await asyncWrap(promise);
 }
 
 export async function RETRIEVE_TASKS(): Promise<any> {
-  const result = await executeSafely(executeOne, db, FETCH_TASKS, []);
+  const promise = executeOne(db, FETCH_TASKS, []);
+  const result = await asyncWrap(promise);
   const tasksArray = mapValuesFromTransaction(result);
   return tasksArray;
 }
@@ -31,9 +35,9 @@ function mapValuesFromTransaction(result: SQLResultSet): any[] {
   return dbResults;
 }
 
-async function executeSafely(fn: Function, ...args: any[]): Promise<SQLResultSet> {
+async function asyncWrap(promise: Promise<any>): Promise<SQLResultSet> {
   try {
-    return fn(...args);
+    return await promise;
   } catch (err) {
     console.log(err);
     throw new Error(err);
