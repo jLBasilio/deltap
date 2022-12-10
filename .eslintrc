@@ -13,6 +13,15 @@
       "version": "detect"
     }
   },
+  "overrides": [
+    {
+      "files": [".eslintrc"],
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "project": "./tsconfig.config.json"
+      }
+    }
+  ],
   "rules": {
     "no-console": "warn",
     "sort-imports": [
@@ -37,6 +46,8 @@
     ],
     "semi": ["error", "always"],
     "promise/param-names": "off",
+    "multiline-ternary": "off",
+
     "@typescript-eslint/semi": "off",
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/space-before-function-paren": "off",

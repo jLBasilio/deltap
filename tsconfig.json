@@ -5,7 +5,8 @@
     "paths": {
       "@src/*": ["./*"],
       "@components": ["./components/index.ts"],
-      "@database/*": ["./database/*"]
+      "@database/*": ["./database/*"],
+      "@screens/*": ["./screens/*"]
     }
   },
   "extends": "expo/tsconfig.base",
