@@ -1,5 +1,9 @@
 import { Button, StyleSheet, View } from 'react-native';
-import { BigButtonProps } from '@src/types';
+
+type BigButtonProps = {
+  onPress: () => void;
+  title: string;
+};
 
 const styles = StyleSheet.create({
   container: {

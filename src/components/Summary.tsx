@@ -1,5 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+type SummaryProps = {
+  taps: any[];
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -9,10 +13,15 @@ const styles = StyleSheet.create({
   }
 });
 
-const Summary = (): JSX.Element => (
-  <View style={styles.container}>
-    <Text>Viewing purposes</Text>
-  </View>
-);
+const Summary = (props: SummaryProps): JSX.Element => {
+  const { taps } = props;
+
+  console.log(taps);
+  return (
+    <View style={styles.container}>
+      <Text>Today&apos;s Summary</Text>
+    </View>
+  );
+};
 
 export default Summary;

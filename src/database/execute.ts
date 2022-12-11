@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import { ParamArray, QueryWithParams } from '@src/types';
 import {
   SQLError,
   SQLResultSet,
@@ -7,6 +6,13 @@ import {
   SQLTransaction,
   WebSQLDatabase
 } from 'expo-sqlite';
+
+type ParamType = null | string | number;
+type ParamArray = ParamType[];
+type QueryWithParams = {
+  query: string;
+  params: ParamArray;
+};
 
 function errorWrapper(
   query: string,

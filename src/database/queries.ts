@@ -36,6 +36,7 @@ export const FETCH_TAPS = `
     tap.updated_at
   FROM tap`;
 
+/* TODO: Pagination */
 export const FETCH_TASKS = `
   SELECT
     task_id,
@@ -43,3 +44,15 @@ export const FETCH_TASKS = `
     created_at,
     updated_at
   FROM task`;
+
+export const DELETE_TAPS = `
+  DELETE
+    *
+  FROM tap;
+`;
+
+export const DELETE_TASKS = `
+  DELETE
+    *
+  FROM task;
+`;

@@ -1,5 +1,12 @@
-import { DBFunction, UseFetch } from '@src/types';
 import { useEffect, useState } from 'react';
+
+export type UseFetch = {
+  data: any[];
+  loading: Boolean;
+  error: any | null;
+};
+
+type DBFunction = (...args: any[]) => any;
 
 const useFetch = (DB_FUNC: DBFunction, ...params: any[]): UseFetch => {
   const [data, setData] = useState([]);

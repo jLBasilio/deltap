@@ -1,6 +1,13 @@
 import { StyleSheet, View } from 'react-native';
-import { BigButton, Summary } from '@components';
-import { ADD_ONE_TAP, ADD_ONE_TASK, RETRIEVE_TAPS, RETRIEVE_TASKS } from '@src/database/functions';
+import { BigButton } from '@components';
+import {
+  ADD_ONE_TAP,
+  ADD_ONE_TASK,
+  DEV_DELETE_TAPS,
+  DEV_DELETE_TASKS,
+  RETRIEVE_TAPS,
+  RETRIEVE_TASKS
+} from '@src/database/functions';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,21 +15,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  buttonRow: {
+    flex: 1,
+    flexDirection: 'row'
   }
 });
 
 const DevMode = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <BigButton onPress={addTap} title="Insert Tap" />
+      <View style={styles.buttonRow}>
+        <BigButton onPress={addTap} title="Insert" />
         <BigButton onPress={retrieveTaps} title="Retrieve" />
+        <BigButton onPress={deleteTaps} title="Delete" />
       </View>
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <BigButton onPress={insertTask} title="Insert task" />
+      <View style={styles.buttonRow}>
+        <BigButton onPress={insertTask} title="Insert" />
         <BigButton onPress={retrieveTasks} title="Retrieve" />
+        <BigButton onPress={deleteTasks} title="Delete" />
       </View>
-      <Summary />
     </View>
   );
 
@@ -42,6 +54,14 @@ const DevMode = (): JSX.Element => {
   async function retrieveTasks(): Promise<any> {
     const tasks = await RETRIEVE_TASKS();
     console.log(tasks);
+  }
+
+  function deleteTaps(): void {
+    void DEV_DELETE_TAPS();
+  }
+
+  function deleteTasks(): void {
+    void DEV_DELETE_TASKS();
   }
 };
 

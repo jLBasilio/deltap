@@ -1,5 +1,9 @@
-import { LoaderProps } from '@src/types';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
+
+type LoaderProps = {
+  isLoading: Boolean;
+  children: JSX.Element | JSX.Element[];
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +24,7 @@ const Loader = (props: LoaderProps): JSX.Element => {
     );
   }
 
-  return children;
+  return <>{children}</>;
 };
 
 export default Loader;

@@ -1,30 +1,45 @@
 import { SQLResultSet } from 'expo-sqlite';
 import { executeOne } from '@database/execute';
 import { db } from '@database/helpers';
-import { FETCH_TAPS, FETCH_TASKS, INSERT_ONE_TAP, INSERT_ONE_TASK } from '@database/queries';
+import {
+  DELETE_TAPS,
+  DELETE_TASKS,
+  FETCH_TAPS,
+  FETCH_TASKS,
+  INSERT_ONE_TAP,
+  INSERT_ONE_TASK
+} from '@database/queries';
 
 export async function ADD_ONE_TAP(): Promise<void> {
-  const promise = executeOne(db, INSERT_ONE_TAP, [1]);
-  await asyncWrap(promise);
+  return await executeOneAndReturn(INSERT_ONE_TAP, [1]);
 }
 
 export async function RETRIEVE_TAPS(): Promise<any> {
-  const promise = executeOne(db, FETCH_TAPS, []);
-  const result = await asyncWrap(promise);
-  const tapsArray = mapValuesFromTransaction(result);
-  return tapsArray;
+  return await executeOneAndReturn(FETCH_TAPS, []);
 }
 
+export async function DEV_DELETE_TAPS(): Promise<any> {
+  return await executeOneAndReturn(DELETE_TAPS, []);
+}
+
+/* ------------- */
+
 export async function ADD_ONE_TASK(): Promise<any> {
-  const promise = executeOne(db, INSERT_ONE_TASK, ['test']);
-  return await asyncWrap(promise);
+  return await executeOneAndReturn(INSERT_ONE_TASK, ['test']);
 }
 
 export async function RETRIEVE_TASKS(): Promise<any> {
-  const promise = executeOne(db, FETCH_TASKS, []);
+  return await executeOneAndReturn(FETCH_TASKS, []);
+}
+
+export async function DEV_DELETE_TASKS(): Promise<any> {
+  return await executeOneAndReturn(DELETE_TASKS, []);
+}
+
+async function executeOneAndReturn(dbFunction: string, params: any[]): Promise<any> {
+  const promise = executeOne(db, dbFunction, params);
   const result = await asyncWrap(promise);
-  const tasksArray = mapValuesFromTransaction(result);
-  return tasksArray;
+  return mapValuesFromTransaction(result);
 }
 
 function mapValuesFromTransaction(result: SQLResultSet): any[] {
@@ -39,7 +54,6 @@ async function asyncWrap(promise: Promise<any>): Promise<SQLResultSet> {
   try {
     return await promise;
   } catch (err) {
-    console.log(err);
     throw new Error(err);
   }
 }
